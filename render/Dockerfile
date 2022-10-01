@@ -4,6 +4,8 @@ RUN apt-get update; \
     docker-php-ext-install bcmath; \
     apt-get install -y nginx
 
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
 COPY --chown=www-data:www-data . .
 COPY ./render/nginx.conf /etc/nginx/sites-enabled/default
 
