@@ -1,7 +1,7 @@
 FROM php:8.1-fpm
 
 RUN apt-get update; \
-    apt-get install -y zip nginx; \
+    apt-get install -y unzip zip nginx; \
     docker-php-ext-install bcmath
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
